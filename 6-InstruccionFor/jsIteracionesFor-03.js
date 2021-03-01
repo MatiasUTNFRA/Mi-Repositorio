@@ -1,8 +1,12 @@
 function mostrar()
 {
+	var CantidadRepeticiones;
 
-	var repetciones = prompt("ingrese el número de repeticiones");
-	alert("ok");
+	CantidadRepeticiones = prompt ("Ingresar la cantidad de veces que se deberá repetir la sentencia");
+	CantidadRepeticiones = parseInt (CantidadRepeticiones);
 
-
-}//FIN DE LA FUNCIÓN
+	for (i = 0 ; i < CantidadRepeticiones ; i ++)
+	{	
+		alert ("Hola UTN FRA");
+	}
+}

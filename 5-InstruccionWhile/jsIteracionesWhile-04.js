@@ -7,7 +7,8 @@ function mostrar()
 
 	while (numero < 0 || numero > 9)
 	{
-		numero = prompt ("Ingresar un número entre 0 y 9 inclusive");
+		numero = parseInt (prompt ("Ingresar un número entre 0 y 9 inclusive"));
+		console.log (numero);
 		
 		if (numero < 0 || numero > 9)
 		{

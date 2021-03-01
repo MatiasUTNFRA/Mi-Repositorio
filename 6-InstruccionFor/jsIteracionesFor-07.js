@@ -1,7 +1,18 @@
 function mostrar()
 {
+	var cantidadRepeticiones;
+	var contadorDivisores = 0;
 
-	alert("ok");
+	cantidadRepeticiones = prompt ("Ingresar cantidad de iteraciones");
+	cantidadRepeticiones = parseInt (cantidadRepeticiones);
 
-
-}//FIN DE LA FUNCIÓN
+	for (i = 1 ; i <= cantidadRepeticiones ; i++)
+	{
+		if (cantidadRepeticiones % i == 0)
+		{
+			alert (i);
+			contadorDivisores++;
+		}
+	}
+	alert ("La cantidad de números divisores es de: "+contadorDivisores);
+}

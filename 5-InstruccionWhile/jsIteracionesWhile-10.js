@@ -14,17 +14,16 @@ function mostrar()
 {
 	var numero;
 	var numeroParse;
-	var seguir;
+	var seguir = true;
 	var sumaNegativos = 0;
 	var sumaPositivos = 0;
 	var contadorNegativos = 0;
 	var contadorPositivos = 0;
 	var contadorCeros = 0;
 	var contadorPares = 0;
-	var promedioPositivos;
-	var promedioNegativos;
+	var promedioPositivos = 0
+	var promedioNegativos = 0
 	var diferencia;
-	var flag = 0;
 
 	do
 	{
@@ -35,39 +34,37 @@ function mostrar()
 		{
 			sumaNegativos = sumaNegativos + numeroParse;
 			contadorNegativos = contadorNegativos + 1;
-			flag = 1;
 		}
 		else
 		{
 			if (numeroParse > 0)
 			{
 				sumaPositivos = sumaPositivos + numeroParse;
-				contadorPositivos = contadorPositivos + 1;
-				flag = 1;		
+				contadorPositivos = contadorPositivos + 1;	
 			}
 			else
 			{
-				if (numeroParse == 0)
-				{
-					contadorCeros = contadorCeros + 1;
-				}			
+				contadorCeros = contadorCeros + 1;		
 			}		
 		}
 		if (numeroParse % 2 == 0)
 		{
 			contadorPares = contadorPares + 1;
 		}
-		seguir = prompt ("¿Desea continuar? Ingresar (Si) en caso de continuar, de lo contrario ingresar cualquier otra cosa");
-	}while (seguir == "Si");
-	promedioPositivos = sumaPositivos / contadorPositivos;
-	promedioNegativos = sumaNegativos / contadorNegativos;
-	diferencia = sumaPositivos + sumaNegativos;
+		seguir = confirm ("¿Continuar ingresando");
 
-	if (flag == 0)
+	}while (seguir);
+	
+	if (contadorPositivos > 0)
 	{
-		promedioPositivos = 0;
-		promedioNegativos = 0;
+		promedioPositivos = sumaPositivos / contadorPositivos;
 	}
+	if (contadorNegativos > 0)
+	{
+		promedioNegativos = sumaNegativos / contadorNegativos;
+	}
+	
+	diferencia = sumaPositivos + sumaNegativos;
 
 	alert ("La suma de los negativos es de: "+sumaNegativos);
 	alert ("La suma de los positivos es de: "+sumaPositivos);

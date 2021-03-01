@@ -3,7 +3,7 @@ Al presionar el botón pedir un sexo
 'f' para femenino, 'm' para masculino.*/
 function mostrar()
 {
-	var sexo = "ninguno";
+	var sexo;
 
 	while (sexo != "f" && sexo != "m")
 	{

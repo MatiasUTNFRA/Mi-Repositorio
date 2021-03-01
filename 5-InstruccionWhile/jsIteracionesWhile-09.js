@@ -15,7 +15,7 @@ function mostrar()
 		numero = prompt ("Ingresar un número");
 		numeroParse = parseInt (numero);
 
-		if (contador == 0)
+		/*if (contador == 0)
 		{
 			maximo = numeroParse;
 			minimo = numeroParse;
@@ -34,9 +34,22 @@ function mostrar()
 					minimo = numeroParse;
 				}
 			}
+		}*/
+		if (contador == 0 || numeroParse > maximo)
+		{
+			maximo = numeroParse;
+			minimo = numeroParse;
+			contador = 1;
+		}
+		else
+		{
+			if (numeroParse < minimo)
+			{
+				minimo = numeroParse;
+			}
 		}		
-			
 		seguir = confirm ("¿Continuar ingresando?");
+		
 	}while (seguir);
 
 	document.getElementById("txtIdMaximo").value = maximo;

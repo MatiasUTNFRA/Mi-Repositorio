@@ -1,7 +1,7 @@
 function mostrar()
 {
 
-	var miArray = new Array();
+	/*var miArray = new Array();
 	var acum=0;
 	for (var i = 0; i <5; i++)
 	{
@@ -20,9 +20,28 @@ function mostrar()
 
 	}
 
-	document.write("<h1> La suma de todos los numeros es: "+acum+"</h1>")
+	document.write("<h1> La suma de todos los numeros es: "+acum+"</h1>")*/
+
+	var ArrayNumeros = [];
+	var numero;
+	var acumulador = 0;
+	seguir = true;
+
+	do
+	{
+		numero = parseInt (prompt ("Ingresar números"));
+		ArrayNumeros.push (numero);
+		acumulador = acumulador + numero;
+		seguir = confirm ("¿Seguir ingresando?");
+
+	}while (seguir);
+
+	document.write ("Números ingresados: "+ArrayNumeros);
+	document.write ("<br>");
+	document.write ("Suma de los mismos: "+acumulador);
+	
+
+	
 
 
-
-
-}//FIN DE LA FUNCIÓN
+}

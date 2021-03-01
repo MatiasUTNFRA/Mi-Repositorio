@@ -1,7 +1,7 @@
 function mostrar()
 {
 
-	var miArray = new Array();
+	/*var miArray = new Array();
 
 	miArray[0]="Juan";
 	miArray[1]="Luis";
@@ -16,10 +16,16 @@ document.write("El contenido del vector es: <br>");
 	{
 
 		document.write("Posicion "+i+"-->"+miArray[i]+"<br>");
+	}*/
+
+	var ArrayNombres = ["Jorge","Carlos","Agustín","Florencia","Josefina"];
+
+	for (i = 0 ; i < 5 ; i++)
+	{
+		alert (ArrayNombres [i]);
 	}
 
 
 
 
-
-}//FIN DE LA FUNCIÓN
+}

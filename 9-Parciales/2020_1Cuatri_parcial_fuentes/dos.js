@@ -130,5 +130,5 @@ function mostrar()
     alert ("Se ha aplicado un descuento! El mismo es de: "+descuento+"% Dejando el total a pagar en: $"+importeConDescuento);
   }
   alert ("El tipo de producto con más cantidad de bolsas es: "+nombreMayorTipo+", con una cantidad de: "+cantidadMayorTipo+" bolsas"+
-  "\n El tipo de bolsa más caro es: "+nombreTipoMasCaro+", con un valor total de: "+precioTipoMasCaro);
+  "\n El tipo de producto más caro es: "+nombreTipoMasCaro+", con un valor total de: "+precioTipoMasCaro);
 }

@@ -16,11 +16,9 @@ function mostrar()
     var sumaBolsasCemento = 0;
     var nombreMayorTipo;
     var cantidadMayorTipo;
-    var sumaPrecioCal = 0;
-    var sumaPrecioArena = 0;
-    var sumaPrecioCemento = 0;
+    var flag = 0;
+    var precioMayorTipo;
     var nombreTipoMasCaro;
-    var precioTipoMasCaro;
     
     do
     {
@@ -50,20 +48,30 @@ function mostrar()
       switch (tipo)
       {
         case "arena":
+
           sumaBolsasArena += cantidadBolsasParse;
-          sumaPrecioArena += precioBolsaParse;
+
         break;
   
         case "cal":
+
           sumaBolsasCal += cantidadBolsasParse;
-          sumaPrecioCal += precioBolsaParse;
+          
         break;
   
         case "cemento":
+
           sumaBolsasCemento += cantidadBolsasParse;
-          sumaPrecioCemento += precioBolsaParse;
+
         break;
       }
+      if (flag == 0 || precioMayorTipo > precioBolsaParse)
+      {
+          precioMayorTipo = precioBolsaParse;
+          nombreTipoMasCaro = tipo;
+          falg = 1;
+      }
+
       seguir = confirm ("¿Continuar?");
   
     }while (seguir);
@@ -102,33 +110,16 @@ function mostrar()
       }
   
     }
-    if (sumaPrecioArena > sumaPrecioCal && sumaPrecioArena > sumaPrecioCemento)
-    {
-      nombreTipoMasCaro = "Arena";
-      precioTipoMasCaro = sumaPrecioArena;
-    }
-    else
-    {
-      if(sumaPrecioCal > sumaPrecioArena && sumaPrecioCal > sumaPrecioCemento)
-      {
-        nombreTipoMasCaro = "Cal";
-        precioTipoMasCaro = sumaPrecioCal;
-      }
-      else
-      {
-        nombreTipoMasCaro = "Cemento";
-        precioTipoMasCaro = sumaPrecioCemento;
-      }
-    }
     importeSinDescuento = acumuladorPrecio * acumuladorBolsas;
     importeConDescuento = importeSinDescuento - importeSinDescuento * descuento / 100;
+
   
-    alert ("El importe a pagar sin descuento es de: $"+importeSinDescuento);
+    document.write ("El importe a pagar sin descuento es de: $"+importeSinDescuento+"<br>");
     
     if (descuento != 0)
     {
-      alert ("Se ha aplicado un descuento! El mismo es de: "+descuento+"% Dejando el total a pagar en: $"+importeConDescuento);
+      document.write ("Se ha aplicado un descuento! El mismo es de: "+descuento+"% Dejando el total a pagar en: $"+importeConDescuento+"<br>");
     }
-    alert ("El tipo de producto con más cantidad de bolsas es: "+nombreMayorTipo+", con una cantidad de: "+cantidadMayorTipo+" bolsas"+
-    "\n El tipo de producto más caro es: "+nombreTipoMasCaro+", con un valor total de: $"+precioTipoMasCaro);
+    document.write ("El tipo de producto con más cantidad de bolsas es: "+nombreMayorTipo+", con una cantidad de: "+cantidadMayorTipo+" bolsas"+
+     "<br>El tipo de producto más caro ingresado es: "+nombreTipoMasCaro+", con un valor total de: $"+precioMayorTipo);
 }

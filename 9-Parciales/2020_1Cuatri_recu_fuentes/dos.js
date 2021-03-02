@@ -69,7 +69,7 @@ function mostrar()
       {
           precioMayorTipo = precioBolsaParse;
           nombreTipoMasCaro = tipo;
-          falg = 1;
+          flag = 1;
       }
 
       seguir = confirm ("¿Continuar?");
@@ -112,7 +112,6 @@ function mostrar()
     }
     importeSinDescuento = acumuladorPrecio * acumuladorBolsas;
     importeConDescuento = importeSinDescuento - importeSinDescuento * descuento / 100;
-
   
     document.write ("El importe a pagar sin descuento es de: $"+importeSinDescuento+"<br>");
     

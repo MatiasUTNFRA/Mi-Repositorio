@@ -127,7 +127,7 @@ function probarEjercicio(){
         }
     }
     promedioHabitantesMas40 = sumaHabitantesMas40 / i;
-    promedioHabitantes = sumaHabitantes / i;
+    promedioHabitantes = sumaHabitantes / contadorMas40;
     if (flag == 0)
     {
         promedioHabitantesMas40 = 0;

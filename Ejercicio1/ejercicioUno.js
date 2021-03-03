@@ -128,6 +128,7 @@ function probarEjercicio(){
 			case "otra cosa":
 				contadorOtraCosa ++;
 				sumaTempOtraCosa += temperaturaParse;
+				ultimaOtraCosa = nombre;
 			break;	
 		}
 		switch (estadoClinico)
@@ -165,6 +166,7 @@ function probarEjercicio(){
 	{
 		perroMasPesado = "Ninguno";
 	}
+	
 	porcentajeEnfermos = contadorMascotasEnfermas * 100 / contadorMascotas;
 	if (flagMenorTempSinPelo == 0)
 	{
@@ -173,6 +175,23 @@ function probarEjercicio(){
 	promedioTempGatos = sumaTempGato / contadorGato;
 	promedioTempPerros = sumaTempPerro / contadorPerro;
 	promedioTempOtraCosa = sumaTempOtraCosa / contadorOtraCosa;
+
+	if (contadorGato == 0)
+	{
+		promedioTempGatos = 0;
+	}
+	if (contadorPerro == 0)
+	{
+		promedioTempPerros = 0;
+	}
+	if (contadorOtraCosa == 0)
+	{
+		promedioTempOtraCosa = 0;
+		ultimaOtraCosa = "Ninguno";
+	}	
+	console.log (promedioTempGatos);
+	console.log (promedioTempPerros);
+	console.log (promedioTempOtraCosa);
 
 	if (promedioTempGatos > promedioTempPerros && promedioTempGatos > promedioTempOtraCosa)
 	{
@@ -190,6 +209,15 @@ function probarEjercicio(){
 		}
 	}
 	porcentajeGatosPerros = (contadorPerro + contadorGato) * 100 / contadorMascotas;
+	
+	if (contadorPerro == 0)
+	{
+		porcentajeGatosPerros = "Ninguno porque no hay perros ingresados";
+	}
+	if (contadorGato == 0)
+	{
+		porcentajeGatosPerros = "Ninguno porque no hay gatos ingresados";
+	}
 
 	promedioPesoMacotas = sumaPesoMascotas / contadorMascotas;
 
@@ -213,10 +241,6 @@ function probarEjercicio(){
 		{
 			estadoClinicoMenorMascotas = "Adopción";
 		}
-	}
-	if (mascota == "otra cosa")
-	{
-		ultimaOtraCosa = nombre;
 	}
 	document.write ("a) El peso del perro más pesado es de: "+perroMasPesado+
 	"<br>b) El porcentaje de enfermos sobre el total de mascotas es del %"+porcentajeEnfermos+

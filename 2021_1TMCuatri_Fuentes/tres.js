@@ -13,7 +13,6 @@ function mostrar()
 	var EdadMujerJoven;
 	var contadorMujerJoven = 0;
 	var precioPasajero = 600;
-	var sumaPrecio = 0;
 	var descuento;
 	var precioSinDescuento;
 	var precioConDescuento;
@@ -30,35 +29,32 @@ function mostrar()
 		}
 		estadoCivil = prompt ('Ingresar el estado civil ("soltero", "casado", "viudo")');
 		
-		while (estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo" || isNaN (estadoCivil) == false)
+		while (estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo")
 		{
 			estadoCivil = prompt ('Inválido. Reingresar: ("soltero", "casado", "viudo")');
 		}
 		edad = prompt ("Ingresar la edad");
 		edadParse = parseInt (edad);
 
-		while (edadParse <= 0 || edadParse > 100 || isNaN (edadParse) == true)
+		while (isNaN (edadParse) || edadParse <= 0 || edadParse > 100)
 		{
 			edadParse = parseInt (prompt ("Inválido. Reingresar:"));
 		}
 		temperatura = prompt ("Ingresar la temperatura corporal");
 		temperaturaParse = parseInt (temperatura);
 
-		while (temperaturaParse < 35 || temperaturaParse > 45 || isNaN (temperaturaParse) == true)
+		while (isNaN (temperaturaParse) || temperaturaParse < 35 || temperaturaParse > 45)
 		{
 			temperaturaParse = parseInt (prompt ("Temperatura inválida. Reingresar:"));
 		}
 		sexo = prompt ('Ingresar el sexo ("masculino", "femenino")');
 
-		while (sexo != "femenino" && sexo != "masculino" || isNaN (sexo) == false)
+		while (sexo != "femenino" && sexo != "masculino")
 		{
 			sexo = prompt ("Inválido. Reingresar:");
 		}
 		switch (estadoCivil)
 		{
-			case "casado":
-
-			break;
 			case "soltero":
 				if (sexo == "femenino")
 				{
@@ -66,19 +62,18 @@ function mostrar()
 					{
 						EdadMujerJoven = edadParse;
 						nombreMujerJoven = nombre;
+						contadorMujerJoven = 1;
 					}
 				}
 			break;
 			case "viudo":
-				if (edadParse >= 60)
+				if (edadParse > 60)
 				{
 					contadorViudo ++;
 				}
 			break;
-
 		}
-		sumaPrecio += precioPasajero;
-		if (edadParse >= 60)
+		if (edadParse > 60)
 		{
 			contadorMas60 ++;
 		}
@@ -93,16 +88,15 @@ function mostrar()
 		EdadMujerJoven = 0;
 		nombreMujerJoven = "Ninguno";
 	}
+	precioSinDescuento = precioPasajero * contadorPasajeros;
 
-	if (contadorMas60 > contadorPasajeros)
+	if (contadorMas60 > contadorPasajeros / 2)
 	{
 		descuento = 25;
-		precioConDescuento = sumaPrecio - sumaPrecio * descuento / 100;
-		document.write ("Se ha aplicado un descuento del 25% dejando el valor total en: "+precioConDescuento+"<br>");
+		precioConDescuento = precioSinDescuento - precioSinDescuento * descuento / 100;
+		document.write ("d) Se ha aplicado un descuento del 25% dejando el valor total en: $"+precioConDescuento+"<br>");
 	}
-	document.write ("a) La cantidad de personas con estado viudo es de: "+contadorViudo+
-	"<br>b) Nombre de la soltera más joven: "+nombreMujerJoven+", edad: "+EdadMujerJoven+
-	"<br>c) El viaje total sin descuento es de: $"+sumaPrecio);
-
-
+	document.write ("a) La cantidad de personas con estado viudo es de: "+contadorViudo);
+	document.write ("<br>b) Nombre de la soltera más joven: "+nombreMujerJoven+", edad: "+EdadMujerJoven);
+	document.write ("<br>c) El viaje total sin descuento es de: $"+precioSinDescuento);
 }

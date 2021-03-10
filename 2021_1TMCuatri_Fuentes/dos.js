@@ -40,34 +40,34 @@ function mostrar()
       }
       tipoCursada = prompt ('Ingresar el tipo de cursada ("libre", "presencial", "remota")');
 
-      while (tipoCursada != "libre" && tipoCursada != "presencial" && tipoCursada != "remota" || isNaN (tipoCursada) == false)
+      while (tipoCursada != "libre" && tipoCursada != "presencial" && tipoCursada != "remota")
       {
         tipoCursada = prompt ('Tipo de cursada inválida. Reingresar: ("libre", "presencial", "remota")');
       }
       cantidadMaterias = prompt ("Ingresar cantidad de materias (entre 1 y 7)");
       cantidadMateriasParse = parseInt (cantidadMaterias);
 
-      while (cantidadMateriasParse < 1 ||cantidadMateriasParse > 7 || isNaN (cantidadMateriasParse) == true)
+      while (isNaN (cantidadMateriasParse) || cantidadMateriasParse < 1 ||cantidadMateriasParse > 7)
       {
         cantidadMateriasParse = parseInt (prompt ("Cantidad de materias inválidas. Reingresar:"));
       }
       sexo = prompt ('Ingresar el sexo ("femenino", "masculino", "no binario")');
 
-      while (sexo != "femenino" && sexo != "masculino" && sexo != "no binario" || isNaN (sexo) == false)
+      while (sexo != "femenino" && sexo != "masculino" && sexo != "no binario")
       {
         sexo = prompt ('Sexo incorrecto. Reingresar: ("femenino", "masculino", "no binario")');
       }
       nota = prompt ('Ingresar la nota promedio: (entre 0 y 10)');
-      notaParse = parseFloat (nota);
+      notaParse = parseFloat (nota); // No usar parseFloat hasta el inicio de la carrera!!!
 
-      while (notaParse <= 0 || notaParse >= 10 || isNaN (notaParse) == true)
+      while (isNaN (notaParse) || notaParse <= 0 || notaParse >= 10)
       {
         notaParse = parseFloat (prompt ("Nota inválida. Reingresar: "));
       }
       edad = prompt ("Ingresar la edad");
       edadParse = parseInt (edad);
 
-      while (edadParse <= 0 || isNaN (edadParse) == true)
+      while (isNaN (edadParse) || edadParse <= 0 || edadParse >= 100)
       {
         edadParse = parseInt (prompt ("Edad inválida. Reingresar:"));
       }
@@ -87,13 +87,8 @@ function mostrar()
           {
             libreMasjoven = edadParse;
             nombreLibreMasjoven = nombre;
-            flag = 1;
+            flag2 = 1;
           }
-        break; 
-        case "presencial":
-        break;  
-        case "remota":
-        break;  
       }
       switch (sexo)
       {
@@ -134,31 +129,41 @@ function mostrar()
     {
       nombreLibreMasjoven = "No hay alumnos asignados en la categoría (libre)";
     }
-    promedioFemenino = sumaFemenino / contadorFemenino;
-    promedioMasculino = sumaMaculino / contadorMasculino;
-    promedioNoBinario = sumaNoBinario / contadorNoBinario;
-
-    if (contadorFemenino == 0)
-    {
-      promedioFemenino = 0;
-    }
-    if (contadorMasculino == 0)
-    {
-      promedioMasculino = 0;
-    }
-    if (contadorNoBinario == 0)
-    {
-      promedioNoBinario = 0;
-    }
     if (flag3 == 0)
     {
       nombreMayorMaterias = "No hay alumnos ingresados distintos a cursada remota";
       edadMayorMaterias = "No hay alumnos ingresados distintos a cursada remota";
     }
-    document.write ("a) El nombre del mejor promedio no masculino es: "+nombreMejorPromedio+
-    "<br>b) El nombre del más joven que da libre es: "+nombreLibreMasjoven+
-    "<br>d) . Masculino: "+promedioMasculino+
-    "<br>. Femenino: "+promedioFemenino+
-    "<br>. No binario: "+promedioNoBinario+
-    "<br>f) Edad y sexo del que cursa más materias que no sea remota: "+edadMayorMaterias+" años, con el nombre: "+nombreMayorMaterias);
+    
+    if (contadorFemenino == 0)
+    {
+      promedioFemenino = 0;
+    }
+    else
+    {
+      promedioFemenino = sumaFemenino / contadorFemenino;
+    }
+    if (contadorMasculino == 0)
+    {
+      promedioMasculino = 0;
+    }
+    else
+    {
+      promedioMasculino = sumaMaculino / contadorMasculino;
+    }
+    if (contadorNoBinario == 0)
+    {
+      promedioNoBinario = 0;
+    }
+    else
+    {
+      promedioNoBinario = sumaNoBinario / contadorNoBinario;
+    }
+   
+    document.write ("a) El nombre del mejor promedio no masculino es: "+nombreMejorPromedio);
+    document.write ("<br>b) El nombre del más joven que da libre es: "+nombreLibreMasjoven);
+    document.write ("<br>d) . Masculino: "+promedioMasculino);
+    document.write ("<br>. Femenino: "+promedioFemenino);
+    document.write ("<br>. No binario: "+promedioNoBinario);
+    document.write ("<br>f) Edad y sexo del que cursa más materias que no sea remota: "+edadMayorMaterias+" años, con el nombre: "+nombreMayorMaterias);
 }
